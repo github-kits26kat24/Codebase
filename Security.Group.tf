@@ -1,9 +1,14 @@
 //This is the security group for the development environment
+# Creating SECURITY GROUP
+# Resource: aws_security_group
+# https://registry.terraform.io/providers/hashicorp/aws/3.73.0/docs/resources/security_group
+
+//This is the security group for the development environment
 
 resource "aws_security_group" "ec2_sg" {
   name        = var.sg_name
   description = "Allow SSH and HTTP Connection"
-  vpc_id      = "vpc-0de121ec0ecf8eeb6"
+  vpc_id      = aws_vpc.test4bcase_main.id
 
   ingress {
     description = "SSH from VPC"

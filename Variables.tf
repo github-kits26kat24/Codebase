@@ -1,3 +1,4 @@
+
 variable "ec2_ami" {
   description = "This is a variable to manage ec2 AMI type"
   type        = string
@@ -13,19 +14,24 @@ variable "ec2_instance_type" {
 variable "ec2_key_name" {
   description = "This is a variable to manage ec2 key name"
   type        = string
-  default     = "Test4B"
+  default     = "Kitskat2023"
+}
+
+variable "sg_name" {
+  description = "This is a variable to manage ec2 key name"
+  type        = string
+  default     = "kay_sg"
 }
 
 variable "default_tags" {
   description = "This variable is declared here to manage ec2 tags"
   type        = map(any)
   default = {
-    "Name" = "Development Environment"
+    "Name"        = "Development Environment"
     "Dept"        = "development"
     "can destroy" = "yes"
   }
 }
 
-    variable "bucket" {}
-    variable "key" {}
-    variable "sg_name" {}
+variable "bucket" {}
+variable "key" {}
