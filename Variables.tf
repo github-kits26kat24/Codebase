@@ -23,7 +23,55 @@ variable "sg_name" {
   default     = "kay_sg"
 }
 
-variable "default_tags" {
+# variable "count" {
+#   description = "This is a variable to manage ec2 key name"
+#   type        = map(any)
+#   default = {
+#     "dev_count"      = "var.env == "dev" ? 1 : 0"
+#     "sit_count_1"    = "var.env == "sit" ? 1 : 0"
+#     "sit_count_2"    = "var.env == "dev" ? 1 : 0"
+#   }
+# }
+
+variable "ec2_dev_public_ip" {
+  description = "This is a variable to manage ec2 key name"
+  type        = string
+  default     = "aws_instance.Marketing_Node.public_ip"
+}
+
+variable "ec2_sit_public_ip_1" {
+  description = "This is a variable to manage ec2 key name"
+  type        = string
+  default     = "aws_instance.Finance_Node.public_ip"
+}
+
+variable "ec2_sit_public_ip_2" {
+  description = "This is a variable to manage ec2 key name"
+  type        = string
+  default     = "aws_instance.Legal_Node.public_ip"
+}
+
+variable "dev_default_tags" {
+  description = "This variable is declared here to manage ec2 tags"
+  type        = map(any)
+  default = {
+    "Name"        = "Development Environment"
+    "Dept"        = "development"
+    "can destroy" = "yes"
+  }
+}
+
+variable "sit_default_tags_1" {
+  description = "This variable is declared here to manage ec2 tags"
+  type        = map(any)
+  default = {
+    "Name"        = "Development Environment"
+    "Dept"        = "development"
+    "can destroy" = "yes"
+  }
+}
+
+variable "sit_default_tags_2" {
   description = "This variable is declared here to manage ec2 tags"
   type        = map(any)
   default = {
@@ -35,3 +83,4 @@ variable "default_tags" {
 
 variable "bucket" {}
 variable "key" {}
+variable "env" {}
